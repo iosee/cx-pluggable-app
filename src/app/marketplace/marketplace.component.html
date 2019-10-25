@@ -1,0 +1,26 @@
+<div class="padding-20">
+  <h3>Carerix Marketplace</h3>
+  <div class="alert" *ngIf="errorVisible">
+    <i class="material-icons">error_outline</i>
+    <div class="alert-text">{{ errorMessage }} </div>
+    <button mat-icon-button type="button" aria-label="Close" (click)="closeError()">
+      <mat-icon class="material-icons">close</mat-icon>
+    </button>
+  </div>
+  <div class="plugins">
+    <mat-card class="margin-20 plugin" *ngFor="let module of installedModules$ | async" [class.enabled]="module.registered">
+      <mat-card-header>
+        <div mat-card-avatar>
+          <mat-icon>{{ module.icon }}</mat-icon>
+        </div>
+        <mat-card-title>{{ module.displayName }}</mat-card-title>
+        <mat-card-subtitle>{{ module.description }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <button mat-raised-button [color]="module.registered ? '' : 'primary'" (click)="enableModule(module)" [disabled]="module.required">
+          {{ module.registered ? 'Disable' : 'Enable'}}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

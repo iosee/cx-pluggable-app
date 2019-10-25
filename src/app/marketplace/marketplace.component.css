@@ -1,0 +1,35 @@
+.alert {
+  margin-bottom: 10px;
+  padding: 2px 10px;
+  text-align: center;
+  color: #856404;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  display: flex;
+  align-items: center;
+  border-radius: .25rem;
+}
+
+.alert-text {
+  padding: 0 10px;
+  flex: 1;
+  text-align: left;
+}
+
+.plugins {
+  display: flex;
+  flex-direction: column;
+}
+
+.plugin {
+  display: flex;
+  flex-direction: row;
+}
+
+.plugin.enabled {
+  background-color: #e6f1e6;
+}
+
+mat-card-header {
+  flex: 1;
+}

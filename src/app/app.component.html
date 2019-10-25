@@ -1,0 +1,24 @@
+<div class="main-container">
+  <header class="header header-6">
+    <mat-toolbar class="branding" color="primary">
+      <mat-toolbar-row>
+        <i class="material-icons">donut_small</i>
+        <span class="title">Carerix Pluggable Architecture Demo</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </header>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
+       *ngFor="let route of existingRoutes$ | async"
+       [routerLink]="['/', route.path]"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      {{ route.path | titlecase }}
+    </a>
+  </nav>
+  <div class="content-container">
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
